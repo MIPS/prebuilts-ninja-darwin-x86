@@ -71,15 +71,6 @@ Darwin)
     ;;
 esac
 
-RD=$SCRATCH/$PROJ-$USER
-INSTALL="$RD/install"
-
-cd /tmp # windows can't delete if you're in the dir
-rm -rf $RD
-mkdir -p $INSTALL
-mkdir -p $RD
-cd $RD
-
 # OSX lacks a "realpath" bash command
 realpath() {
     [[ $1 = /* ]] && echo "$1" || echo "$PWD/${1#./}"
@@ -88,6 +79,15 @@ realpath() {
 SCRIPT_FILE=$(realpath "$0")
 SCRIPT_DIR="$(dirname "$SCRIPT_FILE")"
 COMMON_FILE="$SCRIPT_DIR/$1"
+
+RD=$SCRATCH/$PROJ-$USER
+INSTALL="$RD/install"
+
+cd /tmp # windows can't delete if you're in the dir
+rm -rf $RD
+mkdir -p $INSTALL
+mkdir -p $RD
+cd $RD
 
 commit_and_push()
 {
