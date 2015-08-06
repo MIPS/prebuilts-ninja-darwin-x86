@@ -4,7 +4,7 @@
 # leaves output in /tmp/prebuilts/ninja/$OS-x86/
 
 PROJ=ninja
-VER=1.5.3
+VER=1.6.0
 MSVS=2013
 
 source $(dirname "$0")/build-common.sh build-common.sh
